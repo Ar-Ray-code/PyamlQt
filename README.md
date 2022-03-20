@@ -12,10 +12,14 @@ PyQt6 configuration in yaml format providing the most simple script.
 ## Installation
 
 ```bash
+pip install PyamlQt
+```
+
+<!-- ```bash
 git clone https://github.com/Ar-Ray-code/PyamlQt.git
 cd PyamlQt
 pip3 install -v -e . 
-```
+``` -->
 
 ## Demo
 
