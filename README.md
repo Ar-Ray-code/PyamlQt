@@ -1,6 +1,6 @@
 # PyamlQt（ぴゃむるきゅーと）
 
-PyQt6 configuration in yaml format providing the most readable scripts.
+PyQt6 configuration in yaml format providing the most simple script.
 
 ## Requirements
 
