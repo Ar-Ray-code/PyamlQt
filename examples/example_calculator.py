@@ -86,15 +86,6 @@ class MainWindow(QMainWindow):
                 pass
         self.widgets["lcd"].display(self.number)
 
-    def exit(self):
-        # ask
-        reply = QtWidgets.QMessageBox.question(self, 'Message',
-                                                  "Are you sure to quit?", QtWidgets.QMessageBox.Yes |
-                                                    QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
-        if reply == QtWidgets.QMessageBox.Yes:
-            self.close()
-            sys.exit()
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
