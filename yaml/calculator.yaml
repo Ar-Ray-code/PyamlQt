@@ -6,7 +6,7 @@ image:
   height: 920
   path: "./image/back-image.png"
 button_1:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 400
   width: 200
@@ -18,7 +18,7 @@ button_1:
   font: "Ubuntu"
   font_bold: true
 button_2:
-  type: pushbutton
+  type: qpushbutton
   x_center: 350
   y_center: 400
   width: 200
@@ -30,7 +30,7 @@ button_2:
   font: "Ubuntu"
   font_bold: true
 button_3:
-  type: pushbutton
+  type: qpushbutton
   x_center: 550
   y_center: 400
   width: 200
@@ -42,7 +42,7 @@ button_3:
   font: "Ubuntu"
   font_bold: true
 button_4:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 500
   width: 200
@@ -54,7 +54,7 @@ button_4:
   font: "Ubuntu"
   font_bold: true
 button_5:
-  type: pushbutton
+  type: qpushbutton
   x_center: 350
   y_center: 500
   width: 200
@@ -66,7 +66,7 @@ button_5:
   font: "Ubuntu"
   font_bold: true
 button_6:
-  type: pushbutton
+  type: qpushbutton
   x_center: 550
   y_center: 500
   width: 200
@@ -78,7 +78,7 @@ button_6:
   font: "Ubuntu"
   font_bold: true
 button_7:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 600
   width: 200
@@ -90,7 +90,7 @@ button_7:
   font: "Ubuntu"
   font_bold: true
 button_8:
-  type: pushbutton
+  type: qpushbutton
   x_center: 350
   y_center: 600
   width: 200
@@ -102,7 +102,7 @@ button_8:
   font: "Ubuntu"
   font_bold: true
 button_9:
-  type: pushbutton
+  type: qpushbutton
   x_center: 550
   y_center: 600
   width: 200
@@ -114,7 +114,7 @@ button_9:
   font: "Ubuntu"
   font_bold: true
 button_plus:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 700
   width: 200
@@ -126,7 +126,7 @@ button_plus:
   font: "Ubuntu"
   font_bold: true
 button_0:
-  type: pushbutton
+  type: qpushbutton
   x_center: 350
   y_center: 700
   width: 200
@@ -138,7 +138,7 @@ button_0:
   font: "Ubuntu"
   font_bold: true
 button_equal:
-  type: pushbutton
+  type: qpushbutton
   x_center: 550
   y_center: 700
   width: 200
@@ -151,7 +151,7 @@ button_equal:
   font_bold: true
 lcd:
   lcd_number:
-  type: lcdnumber
+  type: qlcdnumber
   x_center: 350
   y_center: 200
   width: 400

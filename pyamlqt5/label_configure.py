@@ -18,6 +18,12 @@ class label_configure:
             sys.exit()
         self.yaml_data = self.yaml_data[self.target_key]
 
+        if "type" in self.yaml_data:
+            self.type = self.yaml_data["type"]
+        else:
+            print("type is undefined.")
+            sys.exit()
+
         if "x_center" in self.yaml_data:
             self.x_center = self.yaml_data["x_center"]
         else:
@@ -107,6 +113,7 @@ class label_configure:
         if DEBUG_FLAG:
             print("==========================================================")
             print("loading " + yaml_file)
+            print("type:" + str(self.type))
             print("x_center: " + str(self.x_center))
             print("y_center: " + str(self.y_center))
             print("width: " + str(self.width))

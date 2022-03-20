@@ -1,20 +1,15 @@
-import PyQt5
 import sys
-import datetime
-import time
 import os
+import yaml
 
 from pyamlqt5.create_widgets import create_widgets
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
-import yaml
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
-# FONT = "Chilanka"
 TITLE = "calc"
 WIDTH = 700
 HEIGHT = 920
-FONT = "Ubuntu"
 
 PLUS = -2
 EQUAL = -3
@@ -23,28 +18,23 @@ YAML = os.path.join(os.path.dirname(__file__), "../yaml/calculator.yaml")
 
 class MainWindow(QMainWindow):
     def __init__(self):
-        self.stylesheet = {}
-        self.element_dict = {}
         self.number = 0
-
-        self.time_val = int(time.time())
-        self.start_flag = False
-
         super().__init__()
 
+        # geometry setting ---
         self.setWindowTitle(TITLE)
         self.setGeometry(0, 0, WIDTH, HEIGHT)
-
         self.create_widgets()
 
     def __del__(self):
-        self.timer.stop()
         pass
     
     def create_widgets(self):
+        # Template ---
         self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
             self.widgets[key].setStyleSheet(self.stylesheet[key])
+        # ------------
 
         # start-stop button
         self.widgets["button_1"].clicked.connect(lambda: self.button_update(1))
@@ -62,46 +52,19 @@ class MainWindow(QMainWindow):
 
         # show
         self.show()
-
 # Template ================================================================
     def create_all_widgets(self, yaml_path: str) -> dict:
-        widgets = dict()
-        stylesheet_str = dict()
-        data = tuple()
-
+        widgets, stylesheet_str = dict(), dict()
         with open(yaml_path, 'r') as f:
             self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
         
             for key in self.yaml_data:
-                if self.yaml_data[key]['type'] == 'pushbutton':
-                    data = create_widgets.create_pushbutton(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'label':
-                    data = create_widgets.create_label(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'lcdnumber':
-                    data = create_widgets.create_lcdnumber(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'spinbox':
-                    data = create_widgets.create_spinbox(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'progressbar':
-                    data = create_widgets.create_progressbar(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'combobox':
-                    data = create_widgets.create_combobox(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'lineedit':
-                    data = create_widgets.create_lineedit(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'checkbox':
-                    data = create_widgets.create_checkbox(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'slider':
-                    data = create_widgets.create_slider(self, yaml_path, key)
-                elif self.yaml_data[key]['type'] == 'image':
-                    data = create_widgets.create_imagelabel(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
-                    
-                else:
-                    print ('missing type')
-                widgets[key] = data[0]
-                stylesheet_str[key] = data[1]
+                data = create_widgets.create(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
+                widgets[key], stylesheet_str[key] = data[0], data[1]
 
         return widgets, stylesheet_str
-    # =========================================================================
-    # 1~9
+# =========================================================================
+
     def button_update(self, number:int = -1):
         if number >= 0:
             self.number = number

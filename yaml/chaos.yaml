@@ -6,7 +6,7 @@ image:
   height: 720
   path: "./image/back-image.png"
 start_stop_button:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 150
   width: 200
@@ -18,7 +18,7 @@ start_stop_button:
   font: "Ubuntu"
   font_bold: true
 exit_button:
-  type: pushbutton
+  type: qpushbutton
   x_center: 150
   y_center: 250
   width: 200
@@ -26,11 +26,11 @@ exit_button:
   text: "Exit"
   font_size: 20
   font_color: "#ff0000"
-  background_color: "orange"
+  background_color: "yellow"
   font: "Ubuntu"
   font_bold: true
 datetime_label:
-  type: label
+  type: qlabel
   x_center: 550
   y_center: 500
   width: 400
@@ -40,8 +40,8 @@ datetime_label:
   font_color: "#000000"
   font: "Ubuntu"
   font_bold: true
-title_label:
-  type: label
+title_qlabel:
+  type: qlabel
   x_center: 500
   y_center: 40
   width: 500
@@ -51,8 +51,8 @@ title_label:
   font_color: "#000000"
   font: "Purisa"
   font_bold: false
-version_label:
-  type: label
+version_qlabel:
+  type: qlabel
   x_center: 150
   y_center: 80
   width: 200
@@ -63,14 +63,14 @@ version_label:
   font: "Ubuntu"
   font_bold: false
 lcd_number:
-  type: lcdnumber
+  type: qlcdnumber
   x_center: 550
   y_center: 200
   width: 400
   height: 100
   background_color: "lightgreen"
 spinbox :
-  type: spinbox
+  type: qspinbox
   x_center: 150
   y_center: 350
   width: 100
@@ -79,7 +79,7 @@ spinbox :
   font: "Ubuntu"
   font_bold: false
 combobox:
-  type: combobox
+  type: qcombobox
   x_center: 150
   y_center: 400
   width: 100
@@ -89,7 +89,7 @@ combobox:
     - b
     - c
 lineedit:
-  type: lineedit
+  type: qlineedit
   x_center: 550
   y_center: 360
   width: 400
@@ -101,7 +101,7 @@ lineedit:
   font: "Ubuntu"
   font_bold: false
 slider1:
-  type: slider
+  type: qslider
   x_center: 120
   y_center: 550
   width: 200
@@ -115,7 +115,7 @@ slider1:
   font: "Ubuntu"
   font_bold: false
 slider2:
-  type: slider
+  type: qslider
   x_center: 500
   y_center: 550
   width: 200
@@ -129,7 +129,7 @@ slider2:
   font: "Ubuntu"
   font_bold: false
 checkbox:
-  type: checkbox
+  type: qcheckbox
   x_center: 150
   y_center: 500
   width: 200
@@ -140,7 +140,7 @@ checkbox:
   font: "Ubuntu"
   font_bold: false
 progressbar:
-  type: progressbar
+  type: qprogressbar
   x_center: 400
   y_center: 650
   width: 500
@@ -150,3 +150,10 @@ progressbar:
   font_color: "#ff0000"
   font: "Ubuntu"
   font_bold: false
+stop-stylesheet:
+  type: stylesheet
+  font_size: 20
+  font_color: "#ff0000"
+  background_color: "orange"
+  font: "Ubuntu"
+  font_bold: true
