@@ -1,10 +1,11 @@
 import sys
+import os
 import yaml
 
 DEBUG_FLAG = False
 
 class label_configure:
-    def __init__(self, yaml_file: str, target_key: str) -> None:
+    def __init__(self, yaml_file: str, target_key: str, script_dir:str="") -> None:
         self.stylesheet_str = str()
         self.yaml_file = yaml_file
         self.target_key = target_key
@@ -93,6 +94,9 @@ class label_configure:
         
         if "path" in self.yaml_data:
             self.path = self.yaml_data["path"]
+            if script_dir != "":
+                self.path = script_dir + self.path
+                self.path = os.path.abspath(self.path)
         else:
             self.path = ""
 

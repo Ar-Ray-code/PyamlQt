@@ -2,16 +2,19 @@ import sys
 import datetime
 import time
 import yaml
+import os
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from pyqt_yaml.create_widgets import create_widgets
+from pyamlqt5.create_widgets import create_widgets
 
 TITLE = "Pyaml-Qt"
 WIDTH = 1280
 HEIGHT = 720
 FONT = "Ubuntu"
+
+YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -32,7 +35,7 @@ class MainWindow(QMainWindow):
         pass
     
     def create_widgets(self):
-        self.widgets, self.stylesheet = self.create_all_widgets("yaml/example.yaml")
+        self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
             self.widgets[key].setStyleSheet(self.stylesheet[key])
 
@@ -46,7 +49,7 @@ class MainWindow(QMainWindow):
         self.widgets["progressbar"].setValue(50)
 
         self.widgets["lcd_number"].display(334)
-        self.widgets["lineedit"].setText("くぁｗせｄｒｆｔｇｙふじこｌｐ")
+        self.widgets["lineedit"].setText("qawsedrftgyhujikolp")
 
         # create timer
         self.timer = QtCore.QTimer(self)
@@ -126,7 +129,7 @@ class MainWindow(QMainWindow):
                 elif self.yaml_data[key]['type'] == 'slider':
                     data = create_widgets.create_slider(self, yaml_path, key)
                 elif self.yaml_data[key]['type'] == 'image':
-                    data = create_widgets.create_imagelabel(self, yaml_path, key)
+                    data = create_widgets.create_imagelabel(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
                     
                 else:
                     print ('missing type')

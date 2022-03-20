@@ -2,8 +2,9 @@ import PyQt5
 import sys
 import datetime
 import time
+import os
 
-from pyqt_yaml.create_widgets import create_widgets
+from pyamlqt5.create_widgets import create_widgets
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
@@ -17,6 +18,8 @@ FONT = "Ubuntu"
 
 PLUS = -2
 EQUAL = -3
+
+YAML = os.path.join(os.path.dirname(__file__), "../yaml/calculator.yaml")
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -39,7 +42,7 @@ class MainWindow(QMainWindow):
         pass
     
     def create_widgets(self):
-        self.widgets, self.stylesheet = self.create_all_widgets("yaml/calculator.yaml")
+        self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
             self.widgets[key].setStyleSheet(self.stylesheet[key])
 
@@ -60,6 +63,7 @@ class MainWindow(QMainWindow):
         # show
         self.show()
 
+# Template ================================================================
     def create_all_widgets(self, yaml_path: str) -> dict:
         widgets = dict()
         stylesheet_str = dict()
@@ -71,49 +75,32 @@ class MainWindow(QMainWindow):
             for key in self.yaml_data:
                 if self.yaml_data[key]['type'] == 'pushbutton':
                     data = create_widgets.create_pushbutton(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'label':
                     data = create_widgets.create_label(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'lcdnumber':
                     data = create_widgets.create_lcdnumber(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'spinbox':
                     data = create_widgets.create_spinbox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'progressbar':
                     data = create_widgets.create_progressbar(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'combobox':
                     data = create_widgets.create_combobox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'lineedit':
                     data = create_widgets.create_lineedit(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'checkbox':
                     data = create_widgets.create_checkbox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'slider':
                     data = create_widgets.create_slider(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'image':
-                    data = create_widgets.create_imagelabel(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
+                    data = create_widgets.create_imagelabel(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
+                    
                 else:
                     print ('missing type')
-                print(stylesheet_str[key])
+                widgets[key] = data[0]
+                stylesheet_str[key] = data[1]
 
         return widgets, stylesheet_str
+    # =========================================================================
     # 1~9
     def button_update(self, number:int = -1):
         if number >= 0:

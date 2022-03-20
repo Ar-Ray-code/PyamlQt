@@ -6,3 +6,9 @@ PyQt5 configuration in yaml format providing the most readable scripts.
 
 - yaml
 - PyQt5
+
+## Installation
+
+```bash
+pip3 install -v -e . 
+```
