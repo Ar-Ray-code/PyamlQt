@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
 ```
 
-Run `python3 <path-to-script>/simple_gui.py`.
+<!-- Run `python3 <path-to-script>/simple_gui.py`. -->
 ![](image/simple-gui-480p.png)
 
 ## Elements (dev)
