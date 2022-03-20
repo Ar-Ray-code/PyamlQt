@@ -1,8 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt5.QtWidgets import *
 from .label_configure import label_configure
-import yaml
 
 # object list ---------------------------------------------------------------
 # create_lcdnumber    create_slider

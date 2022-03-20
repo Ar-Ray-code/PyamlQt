@@ -1,13 +1,12 @@
-import PyQt5
 import sys
 import datetime
 import time
-
-from pyqt_yaml.create_widgets import create_widgets
+import yaml
 
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
-import yaml
+
+from pyqt_yaml.create_widgets import create_widgets
 
 TITLE = "Pyaml-Qt"
 WIDTH = 1280
