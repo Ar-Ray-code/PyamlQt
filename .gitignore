@@ -1,3 +1,4 @@
 __pycache__/
-pyyamlqt5.egg-info/
-pyyamlqt.egg-info/
+PyamlQt.egg-info/
+build/
+dist/

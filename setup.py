@@ -23,7 +23,7 @@ setuptools.setup(
     author_email="ray255ar@gmail.com",
 
     url="https://github.com/Ar-Ray-code/PyamlQt",
-    description="PyQt6 configuration in yaml format providing the most simple script."
+    description="PyQt6 configuration in yaml format providing the most simple script.",
     long_description=long_description,
     long_description_content_type='text/markdown',
     keywords='PyQt yaml',
@@ -34,8 +34,7 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-    ]
-    
+    ],
     project_urls={
         "Source": "https://github.com/Ar-Ray-code/PyamlQt",
         "Tracker": "https://github.com/Ar-Ray-code/PyamlQt/issues",
