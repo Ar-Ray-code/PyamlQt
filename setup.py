@@ -8,7 +8,7 @@ def get_version():
             r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
             f.read(), re.MULTILINE
         ).group(1)
-    return 
+    return version
 
 readme_path = path.abspath(path.dirname(__file__))
 with open(path.join(readme_path, 'README.md'), encoding='utf-8') as f:
