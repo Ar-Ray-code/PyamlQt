@@ -109,46 +109,29 @@ class MainWindow(QMainWindow):
             for key in self.yaml_data:
                 if self.yaml_data[key]['type'] == 'pushbutton':
                     data = create_widgets.create_pushbutton(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'label':
                     data = create_widgets.create_label(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'lcdnumber':
                     data = create_widgets.create_lcdnumber(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'spinbox':
                     data = create_widgets.create_spinbox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'progressbar':
                     data = create_widgets.create_progressbar(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'combobox':
                     data = create_widgets.create_combobox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'lineedit':
                     data = create_widgets.create_lineedit(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'checkbox':
                     data = create_widgets.create_checkbox(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'slider':
                     data = create_widgets.create_slider(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
                 elif self.yaml_data[key]['type'] == 'image':
                     data = create_widgets.create_imagelabel(self, yaml_path, key)
-                    widgets[key] = data[0]
-                    stylesheet_str[key] = data[1]
+                    
                 else:
                     print ('missing type')
+                widgets[key] = data[0]
+                stylesheet_str[key] = data[1]
 
         return widgets, stylesheet_str
     # =========================================================================
