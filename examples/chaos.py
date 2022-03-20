@@ -8,9 +8,9 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
 from pyamlqt5.create_widgets import create_widgets
-
-TITLE = "Pyaml-Qt"
-WIDTH = 1280
+# program file name
+TITLE = os.path.basename(__file__)
+WIDTH = 800
 HEIGHT = 720
 FONT = "Ubuntu"
 
@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         # create timer
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.timer_update)
-        self.timer.start(1000)
+        self.timer.start(10)
     
     def spinbox_update(self):
         self.value = self.widgets["spinbox"].value()
@@ -92,9 +92,9 @@ class MainWindow(QMainWindow):
         self.widgets["lcd_number"].display(self.number)
         self.widgets["progressbar"].setValue(self.number)
         self.widgets["spinbox"].setValue(self.number)
-        self.widgets["slider"].setValue(self.number)
+        self.widgets["slider1"].setValue(self.number)
+        self.widgets["slider2"].setValue(self.number)
 
-        self.widgets["time_label"].setText("Unixtime: " + str(self.time_val))
         self.widgets["datetime_label"].setText(str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
         self.update()
         self.show()

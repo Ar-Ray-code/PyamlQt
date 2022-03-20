@@ -1,15 +1,15 @@
 image:
   type: image
-  x_center: 640
+  x_center: 550
   y_center: 360
   width: 1280
   height: 720
   path: "./image/back-image.png"
 start_stop_button:
   type: pushbutton
-  x_center: 600
-  y_center: 600
-  width: 350
+  x_center: 150
+  y_center: 150
+  width: 200
   height: 100
   text: "Start"
   font_size: 20
@@ -19,9 +19,9 @@ start_stop_button:
   font_bold: true
 exit_button:
   type: pushbutton
-  x_center: 1000
-  y_center: 600
-  width: 350
+  x_center: 150
+  y_center: 250
+  width: 200
   height: 100
   text: "Exit"
   font_size: 20
@@ -31,8 +31,8 @@ exit_button:
   font_bold: true
 datetime_label:
   type: label
-  x_center: 600
-  y_center: 30
+  x_center: 550
+  y_center: 500
   width: 400
   height: 100
   text: "Date and Time"
@@ -40,24 +40,13 @@ datetime_label:
   font_color: "#000000"
   font: "Ubuntu"
   font_bold: true
-time_label:
-  type: label
-  x_center: 1050
-  y_center: 30
-  width: 450
-  height: 100
-  text: "Time"
-  font_size: 30
-  font_color: "#000000"
-  font: "Ubuntu"
-  font_bold: false
 title_label:
   type: label
-  x_center: 150
-  y_center: 35
-  width: 300
+  x_center: 500
+  y_center: 40
+  width: 500
   height: 100
-  text: "PYamlQt5"
+  text: "PYamlQt5-Chaos"
   font_size: 40
   font_color: "#000000"
   font: "Purisa"
@@ -75,7 +64,7 @@ version_label:
   font_bold: false
 lcd_number:
   type: lcdnumber
-  x_center: 640
+  x_center: 550
   y_center: 200
   width: 400
   height: 100
@@ -101,9 +90,9 @@ combobox:
     - c
 lineedit:
   type: lineedit
-  x_center: 640
+  x_center: 550
   y_center: 360
-  width: 500
+  width: 400
   height: 100
   text: "Line Edit"
   font_size: 15
@@ -111,9 +100,23 @@ lineedit:
   background_color: "lightblue"
   font: "Ubuntu"
   font_bold: false
-slider:
+slider1:
   type: slider
   x_center: 120
+  y_center: 550
+  width: 200
+  height: 50
+  max: 100
+  min: 0
+  default: 70
+  text: "Slider"
+  font_size: 30
+  font_color: "#ff0000"
+  font: "Ubuntu"
+  font_bold: false
+slider2:
+  type: slider
+  x_center: 500
   y_center: 550
   width: 200
   height: 50
@@ -138,9 +141,9 @@ checkbox:
   font_bold: false
 progressbar:
   type: progressbar
-  x_center: 640
-  y_center: 700
-  width: 1200
+  x_center: 400
+  y_center: 650
+  width: 500
   height: 20
   text: "Progressbar"
   font_size: 10
