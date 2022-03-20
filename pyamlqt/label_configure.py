@@ -51,7 +51,7 @@ class label_configure:
         if "font_size" in self.yaml_data:
             self.font_size = self.yaml_data["font_size"]
         else:
-            self.font_size = 0
+            self.font_size = 10
 
         if "font_color" in self.yaml_data:
             self.font_color = self.yaml_data["font_color"]

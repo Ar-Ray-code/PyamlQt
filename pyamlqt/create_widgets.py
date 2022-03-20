@@ -23,6 +23,8 @@ def create_stylesheet_str(yaml_path: str, key: str, script_dir:str = "") -> str:
     configure = label_configure(yaml_path, key, script_dir)
     stylesheet_str = str()
 
+    stylesheet_str += "font-family: " + configure.font + ";\n"
+    stylesheet_str += "font-size: " + str(configure.font_size) + "px;\n"
     if configure.font_color != "":
         stylesheet_str += "color: " + configure.font_color + ";"
     if configure.font_bold:

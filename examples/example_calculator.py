@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
         # Template ---
         self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
-            self.widgets[key].setStyleSheet(self.stylesheet[key])
+            self.widgets[key].setStyleSheet(self.stylesheet["style_common"])
         # ------------
 
         # start-stop button

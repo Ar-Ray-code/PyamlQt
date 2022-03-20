@@ -5,18 +5,20 @@ image:
   width: 700
   height: 920
   path: "./image/back-image.png"
-button_1:
-  type: qpushbutton
-  x_center: 150
-  y_center: 400
-  width: 200
-  height: 100
-  text: "1"
+style_common:
+  type: stylesheet
   font_size: 30
-  font_color: "#ff0000"
+  font_color: "black"
   background_color: "lightgreen"
   font: "Ubuntu"
   font_bold: true
+button_1:
+  type: qpushbutton
+  width: 200
+  height: 100
+  x_center: 150
+  y_center: 400
+  text: "1"
 button_2:
   type: qpushbutton
   x_center: 350
@@ -24,11 +26,6 @@ button_2:
   width: 200
   height: 100
   text: "2"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_3:
   type: qpushbutton
   x_center: 550
@@ -36,11 +33,6 @@ button_3:
   width: 200
   height: 100
   text: "3"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_4:
   type: qpushbutton
   x_center: 150
@@ -48,11 +40,6 @@ button_4:
   width: 200
   height: 100
   text: "4"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_5:
   type: qpushbutton
   x_center: 350
@@ -60,11 +47,6 @@ button_5:
   width: 200
   height: 100
   text: "5"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_6:
   type: qpushbutton
   x_center: 550
@@ -72,11 +54,6 @@ button_6:
   width: 200
   height: 100
   text: "6"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_7:
   type: qpushbutton
   x_center: 150
@@ -84,11 +61,6 @@ button_7:
   width: 200
   height: 100
   text: "7"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_8:
   type: qpushbutton
   x_center: 350
@@ -96,11 +68,6 @@ button_8:
   width: 200
   height: 100
   text: "8"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_9:
   type: qpushbutton
   x_center: 550
@@ -108,11 +75,6 @@ button_9:
   width: 200
   height: 100
   text: "9"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_plus:
   type: qpushbutton
   x_center: 150
@@ -120,11 +82,6 @@ button_plus:
   width: 200
   height: 100
   text: "+"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_0:
   type: qpushbutton
   x_center: 350
@@ -132,11 +89,6 @@ button_0:
   width: 200
   height: 100
   text: "0"
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 button_equal:
   type: qpushbutton
   x_center: 550
@@ -144,11 +96,6 @@ button_equal:
   width: 200
   height: 100
   text: "="
-  font_size: 30
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
 lcd:
   lcd_number:
   type: qlcdnumber
