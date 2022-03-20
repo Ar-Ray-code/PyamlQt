@@ -2,10 +2,17 @@ import sys
 import os
 import yaml
 
-from pyamlqt5.create_widgets import create_widgets
+from pyamlqt.create_widgets import create_widgets
+import pyamlqt.qt6_switch as qt6_switch
 
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+qt6_mode = qt6_switch.qt6
+
+if qt6_mode:
+    from PyQt6 import QtCore, QtWidgets
+    from PyQt6.QtWidgets import QApplication, QMainWindow
+else:
+    from PyQt5 import QtCore, QtWidgets
+    from PyQt5.QtWidgets import QApplication, QMainWindow
 
 TITLE = "calc"
 WIDTH = 700
@@ -91,4 +98,4 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

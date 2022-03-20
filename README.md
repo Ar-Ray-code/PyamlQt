@@ -1,17 +1,17 @@
-# PyamlQt5（ぴゃむるきゅーと）
+# PyamlQt（ぴゃむるきゅーと）
 
-PyQt5 configuration in yaml format providing the most readable scripts.
+PyQt6 configuration in yaml format providing the most readable scripts.
 
 ## Requirements
 
 - yaml
-- PyQt5
+- PyQt6, ( PyQt5 )
 
 ## Installation
 
 ```bash
-git clone https://github.com/Ar-Ray-code/PyamlQt5.git
-cd PyamlQt5
+git clone https://github.com/Ar-Ray-code/PyamlQt.git
+cd PyamlQt
 pip3 install -v -e . 
 ```
 
@@ -29,8 +29,15 @@ See `examples/simple_gui.py`.
 import sys
 import os
 
-from pyamlqt5.create_widgets import create_widgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from pyamlqt.create_widgets import create_widgets
+import pyamlqt.qt6_switch as qt6_switch
+
+qt6_mode = qt6_switch.qt6
+
+if qt6_mode:
+    from PyQt6.QtWidgets import QApplication, QMainWindow
+else:
+    from PyQt5.QtWidgets import QApplication, QMainWindow
 
 YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
 
@@ -43,7 +50,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Simple GUI")
         self.setGeometry(0, 0, 800, 720)
         
-        # Template ( No editing required ) ==============
+        # Template ( Don't have to edit ) ==============
         self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
             self.widgets[key].setStyleSheet(self.stylesheet[key])
@@ -55,7 +62,7 @@ class MainWindow(QMainWindow):
         
         self.show()
 
-    # Template ( No editing required ) ==============
+    # Template ( Don't have to edit ) ==============
     def create_all_widgets(self, yaml_path: str) -> dict:
         import yaml
         widgets, stylesheet_str = dict(), dict()
@@ -72,8 +79,8 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    sys.exit(app.exec_())
-
+    # sys.exit(app.exec_())
+    sys.exit(app.exec())
 ```
 
 <!-- Run `python3 <path-to-script>/simple_gui.py`. -->
@@ -96,7 +103,7 @@ In yaml, you can add the following elements defined in PyQt.Widgets This may be 
 
 ### YAML format
 
-PyamlQt5 defines common elements for simplicity. Not all values need to be defined, but if not set, default values will be applied
+PyamlQt defines common elements for simplicity. Not all values need to be defined, but if not set, default values will be applied
 
 ```yaml
 key: # key name (Required for your scripts)
@@ -118,3 +125,8 @@ key: # key name (Required for your scripts)
     - b
     - c
 ```
+
+### PyQt5 Mode
+If you want to use PyQt5, you have to change the `qt6_switch.py` file.
+
+Open the file and change the `qt6_mode` variable to `False`.

@@ -1,0 +1,11 @@
+README.md
+setup.py
+pyamlqt/__init__.py
+pyamlqt/create_widgets.py
+pyamlqt/label_configure.py
+pyamlqt/qt6_switch.py
+pyyamlqt.egg-info/PKG-INFO
+pyyamlqt.egg-info/SOURCES.txt
+pyyamlqt.egg-info/dependency_links.txt
+pyyamlqt.egg-info/requires.txt
+pyyamlqt.egg-info/top_level.txt

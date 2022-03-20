@@ -1,8 +1,15 @@
 import sys
 import os
 
-from pyamlqt5.create_widgets import create_widgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from pyamlqt.create_widgets import create_widgets
+import pyamlqt.qt6_switch as qt6_switch
+
+qt6_mode = qt6_switch.qt6
+
+if qt6_mode:
+    from PyQt6.QtWidgets import QApplication, QMainWindow
+else:
+    from PyQt5.QtWidgets import QApplication, QMainWindow
 
 YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
 
@@ -44,4 +51,5 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    sys.exit(app.exec_())
+    # sys.exit(app.exec_())
+    sys.exit(app.exec())

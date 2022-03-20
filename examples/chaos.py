@@ -4,10 +4,18 @@ import time
 import yaml
 import os
 
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from pyamlqt.create_widgets import create_widgets
+import pyamlqt.qt6_switch as qt6_switch
 
-from pyamlqt5.create_widgets import create_widgets
+qt6_mode = qt6_switch.qt6
+
+if qt6_mode:
+    from PyQt6 import QtCore, QtWidgets
+    from PyQt6.QtWidgets import QApplication, QMainWindow
+else:
+    from PyQt5 import QtCore, QtWidgets
+    from PyQt5.QtWidgets import QApplication, QMainWindow
+
 # program file name
 TITLE = os.path.basename(__file__)
 WIDTH = 800
@@ -72,11 +80,18 @@ class MainWindow(QMainWindow):
 
     def exit(self):
         # ask
-        reply = QtWidgets.QMessageBox.question(self, 'Message',
-                                                  "Are you sure to quit?", QtWidgets.QMessageBox.Yes |
+        if qt6_mode:
+            reply = QtWidgets.QMessageBox.question(self, 'Message', "Are you sure to quit?")
+            if reply == QtWidgets.QMessageBox.StandardButton.No:
+                return
+        else:
+            reply = QtWidgets.QMessageBox.question(self, 'Message',
+                                                    "Are you sure to quit?", QtWidgets.QMessageBox.Yes |
                                                     QtWidgets.QMessageBox.No, QtWidgets.QMessageBox.No)
-        if reply == QtWidgets.QMessageBox.Yes:
-            sys.exit()
+            if reply == QtWidgets.QMessageBox.No:
+                return
+        
+        sys.exit()
 
     def timer_update(self):
         self.time_val = int(time.time())
@@ -115,4 +130,4 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

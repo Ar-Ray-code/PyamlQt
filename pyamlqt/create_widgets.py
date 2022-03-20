@@ -1,6 +1,15 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import *
 from .label_configure import label_configure
+import pyamlqt.qt6_switch as qt6_switch
+
+qt6_mode = qt6_switch.qt6
+
+if qt6_mode:
+    from PyQt6 import QtCore, QtWidgets, QtGui
+    print("qt6 mode")
+else:
+    from PyQt5 import QtCore, QtWidgets, QtGui
+    print("qt5 mode")
+
 
 # object list ---------------------------------------------------------------
 # create_lcdnumber    create_slider
@@ -36,28 +45,36 @@ class create_widgets:
             target = QtWidgets.QPushButton(self)
             target.setText(config.text)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            # target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "qlabel":
             target = QtWidgets.QLabel(self)
             target.setText(config.text)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            target.setAlignment(QtCore.Qt.AlignCenter)
+            
+            if qt6_mode:
+                target.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            else:
+                target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "qlcdnumber":
             target = QtWidgets.QLCDNumber(self)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            # target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "qprogressbar":
             target = QtWidgets.QProgressBar(self)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            target.setAlignment(QtCore.Qt.AlignCenter)
+            if qt6_mode:
+                target.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            else:
+                target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "qlineedit":
             target = QtWidgets.QLineEdit(self)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            target.setAlignment(QtCore.Qt.AlignTop)
+            if qt6_mode:
+                target.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+            else:
+                target.setAlignment(QtCore.Qt.AlignTop)
 
         elif config.type == "qcheckbox":
             target = QtWidgets.QCheckBox(self)
@@ -70,9 +87,15 @@ class create_widgets:
             target.resize(config.width, config.height)
         
             if config.height > config.width:
-                target.setOrientation(QtCore.Qt.Vertical)
+                if qt6_mode:
+                    target.setOrientation(QtCore.Qt.Orientation.Vertical)
+                else:
+                    target.setOrientation(QtCore.Qt.Vertical)
             else:
-                target.setOrientation(QtCore.Qt.Horizontal)
+                if qt6_mode:
+                    target.setOrientation(QtCore.Qt.Orientation.Horizontal)
+                else:
+                    target.setOrientation(QtCore.Qt.Horizontal)
             target.setMinimum(config.min)
             target.setMaximum(config.max)
             target.setValue(config.default)
@@ -82,7 +105,10 @@ class create_widgets:
             target = QtWidgets.QSpinBox(self)
             target.resize(config.width, config.height)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            target.setAlignment(QtCore.Qt.AlignCenter)
+            if qt6_mode:
+                target.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            else:
+                target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "qcombobox":
             target = QtWidgets.QComboBox(self)
@@ -95,11 +121,13 @@ class create_widgets:
             target = QtWidgets.QLabel(self)
             target.setGeometry(config.x, config.y, config.width, config.height)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            target.setAlignment(QtCore.Qt.AlignCenter)
+            if qt6_mode:
+                target.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            else:
+                target.setAlignment(QtCore.Qt.AlignCenter)
 
         elif config.type == "stylesheet":
             target = QtWidgets.QLabel(self)
-            # visual false
             target.setHidden(True)
 
         else:
@@ -111,7 +139,7 @@ class create_widgets:
         stylesheet_str = create_stylesheet_str(yaml_path, key, script_dir)
         return tuple((target , stylesheet_str))
 
-# # Template B ================================================================
+# # Template  ================================================================
 #     def create_all_widgets(self, yaml_path: str) -> dict:
 #         widgets, stylesheet_str = dict(), dict()
 #         with open(yaml_path, 'r') as f:

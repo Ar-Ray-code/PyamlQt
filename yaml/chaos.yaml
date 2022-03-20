@@ -46,7 +46,7 @@ title_qlabel:
   y_center: 40
   width: 500
   height: 100
-  text: "PYamlQt5-Chaos"
+  text: "PYamlQt-Chaos"
   font_size: 40
   font_color: "#000000"
   font: "Purisa"
