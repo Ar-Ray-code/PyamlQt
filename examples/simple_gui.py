@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Simple GUI")
         self.setGeometry(0, 0, 800, 720)
         
-        # Template ( Don't have to edit ) ==============
+        # Template ==========================================
         self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
             self.widgets[key].setStyleSheet(self.stylesheet[key])
@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         
         self.show()
 
-    # Template ( Don't have to edit ) ==============
+    # Template ==========================================
     def create_all_widgets(self, yaml_path: str) -> dict:
         import yaml
         widgets, stylesheet_str = dict(), dict()
@@ -46,7 +46,7 @@ class MainWindow(QMainWindow):
                 widgets[key], stylesheet_str[key] = data[0], data[1]
 
         return widgets, stylesheet_str
-    # ==============================================
+    # ===================================================
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
