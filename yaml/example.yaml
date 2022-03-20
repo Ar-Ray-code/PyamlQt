@@ -1,0 +1,149 @@
+image:
+  type: image
+  x_center: 640
+  y_center: 360
+  width: 1280
+  height: 720
+  path: "./image/back-image.png"
+start_stop_button:
+  type: pushbutton
+  x_center: 600
+  y_center: 600
+  width: 350
+  height: 100
+  text: "Start"
+  font_size: 20
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+exit_button:
+  type: pushbutton
+  x_center: 1000
+  y_center: 600
+  width: 350
+  height: 100
+  text: "Exit"
+  font_size: 20
+  font_color: "#ff0000"
+  background_color: "orange"
+  font: "Ubuntu"
+  font_bold: true
+datetime_label:
+  type: label
+  x_center: 600
+  y_center: 30
+  width: 400
+  height: 100
+  text: "Date and Time"
+  font_size: 30
+  font_color: "#000000"
+  font: "Ubuntu"
+  font_bold: true
+time_label:
+  type: label
+  x_center: 1050
+  y_center: 30
+  width: 450
+  height: 100
+  text: "Time"
+  font_size: 30
+  font_color: "#000000"
+  font: "Ubuntu"
+  font_bold: false
+title_label:
+  type: label
+  x_center: 150
+  y_center: 35
+  width: 300
+  height: 100
+  text: "PYamlQt5"
+  font_size: 40
+  font_color: "#000000"
+  font: "Purisa"
+  font_bold: false
+version_label:
+  type: label
+  x_center: 150
+  y_center: 80
+  width: 200
+  height: 100
+  text: "Version: 0.1.0"
+  font_size: 15
+  font_color: "#000000"
+  font: "Ubuntu"
+  font_bold: false
+lcd_number:
+  type: lcdnumber
+  x_center: 640
+  y_center: 200
+  width: 400
+  height: 100
+  background_color: "lightgreen"
+spinbox :
+  type: spinbox
+  x_center: 150
+  y_center: 350
+  width: 100
+  height: 50
+  font_color: "black"
+  font: "Ubuntu"
+  font_bold: false
+combobox:
+  type: combobox
+  x_center: 150
+  y_center: 400
+  width: 100
+  height: 50
+  items:
+    - a
+    - b
+    - c
+lineedit:
+  type: lineedit
+  x_center: 640
+  y_center: 360
+  width: 500
+  height: 100
+  text: "Line Edit"
+  font_size: 15
+  font_color: "#ff0000"
+  background_color: "lightblue"
+  font: "Ubuntu"
+  font_bold: false
+slider:
+  type: slider
+  x_center: 120
+  y_center: 550
+  width: 200
+  height: 50
+  max: 100
+  min: 0
+  default: 70
+  text: "Slider"
+  font_size: 30
+  font_color: "#ff0000"
+  font: "Ubuntu"
+  font_bold: false
+checkbox:
+  type: checkbox
+  x_center: 150
+  y_center: 500
+  width: 200
+  height: 100
+  text: "Checkbox"
+  font_size: 10
+  font_color: "#ff00f0"
+  font: "Ubuntu"
+  font_bold: false
+progressbar:
+  type: progressbar
+  x_center: 640
+  y_center: 700
+  width: 1200
+  height: 20
+  text: "Progressbar"
+  font_size: 10
+  font_color: "#ff0000"
+  font: "Ubuntu"
+  font_bold: false

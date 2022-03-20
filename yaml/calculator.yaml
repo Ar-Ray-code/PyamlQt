@@ -1,0 +1,159 @@
+image:
+  type: image
+  x_center: 350
+  y_center: 460
+  width: 700
+  height: 920
+  path: "./image/back-image.png"
+button_1:
+  type: pushbutton
+  x_center: 150
+  y_center: 400
+  width: 200
+  height: 100
+  text: "1"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_2:
+  type: pushbutton
+  x_center: 350
+  y_center: 400
+  width: 200
+  height: 100
+  text: "2"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_3:
+  type: pushbutton
+  x_center: 550
+  y_center: 400
+  width: 200
+  height: 100
+  text: "3"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_4:
+  type: pushbutton
+  x_center: 150
+  y_center: 500
+  width: 200
+  height: 100
+  text: "4"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_5:
+  type: pushbutton
+  x_center: 350
+  y_center: 500
+  width: 200
+  height: 100
+  text: "5"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_6:
+  type: pushbutton
+  x_center: 550
+  y_center: 500
+  width: 200
+  height: 100
+  text: "6"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_7:
+  type: pushbutton
+  x_center: 150
+  y_center: 600
+  width: 200
+  height: 100
+  text: "7"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_8:
+  type: pushbutton
+  x_center: 350
+  y_center: 600
+  width: 200
+  height: 100
+  text: "8"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_9:
+  type: pushbutton
+  x_center: 550
+  y_center: 600
+  width: 200
+  height: 100
+  text: "9"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_plus:
+  type: pushbutton
+  x_center: 150
+  y_center: 700
+  width: 200
+  height: 100
+  text: "+"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_0:
+  type: pushbutton
+  x_center: 350
+  y_center: 700
+  width: 200
+  height: 100
+  text: "0"
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+button_equal:
+  type: pushbutton
+  x_center: 550
+  y_center: 700
+  width: 200
+  height: 100
+  text: "="
+  font_size: 30
+  font_color: "#ff0000"
+  background_color: "lightgreen"
+  font: "Ubuntu"
+  font_bold: true
+lcd:
+  lcd_number:
+  type: lcdnumber
+  x_center: 350
+  y_center: 200
+  width: 400
+  height: 100
+  background_color: "lightgreen"
