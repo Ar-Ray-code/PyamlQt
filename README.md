@@ -99,7 +99,7 @@ In yaml, you can add the following elements defined in PyQt.Widgets This may be 
 - qspinbox : definition of QSpinBox
 - qcombobox : definition of QCombobox
 - image : definition of QLabel (using image path)
-- stylesheet : definition of Stylesheet (define as QLabel and `setHidden=True`))
+- stylesheet : definition of Stylesheet (define as QLabel and `setHidden=True`)
 
 ### YAML format
 
@@ -120,7 +120,7 @@ key: # key name (Required for your scripts)
   font_color: "#ff0000" # Text color
   font: "Ubuntu" # Text font
   font_bold: false # bold-text option
-  items: # Selectable items( Combobox' option )
+  items: # Selectable items( Combobox's option )
     - a
     - b
     - c
@@ -129,4 +129,6 @@ key: # key name (Required for your scripts)
 ### PyQt5 Mode
 If you want to use PyQt5, you have to change the `qt6_switch.py` file.
 
-Open the file and change the `qt6_mode` variable to `False`.
+- Open the file and change the `qt6_mode` variable to `False`.
+- `pip3 install PyQt5`
+- `pip3 install -v -e .`
