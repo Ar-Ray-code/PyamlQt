@@ -1,4 +1,4 @@
-# PyamlQt5
+# PyamlQt5（ぴゃむるきゅーと）
 
 PyQt5 configuration in yaml format providing the most readable scripts.
 
