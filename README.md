@@ -1,5 +1,7 @@
 # PyamlQt（ぴゃむるきゅーと）
 
+[![PyPI version](https://badge.fury.io/py/PyamlQt.svg)](https://badge.fury.io/py/PyamlQt)
+
 PyQt6 configuration in yaml format providing the most simple script.
 
 ## Requirements
