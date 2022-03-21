@@ -2,6 +2,8 @@
 
 [![PyPI version](https://badge.fury.io/py/PyamlQt.svg)](https://badge.fury.io/py/PyamlQt)
 
+- [Zenn「最もシンプルなGUI設計パッケージPyamlQtについて」](https://zenn.dev/array/articles/9617ae0bbd8a80)
+
 PyQt6 configuration in yaml format providing the most simple script.
 
 ## Requirements
