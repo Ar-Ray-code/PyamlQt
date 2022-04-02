@@ -6,7 +6,7 @@ image:
   height: 920
   path: "./image/back-image.png"
 style_common:
-  include: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/style_blue.yaml
+  include: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/color/style_blue.yaml
 button_1:
   type: qpushbutton
   width: 200

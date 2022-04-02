@@ -1,0 +1,8 @@
+style_common:
+  type: stylesheet
+  style:
+    font: bold 30px;
+    color: black
+    background-color: orange
+    border: 1px solid red
+    font-family: Noto Sans

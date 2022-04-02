@@ -35,9 +35,13 @@ class label_configure:
             # is url or path
             if self.is_url(self.yaml_data["include"]):
                 # is url -> save to ~/.cache/pyamlqt/yaml/***.yaml and load it
-                os.makedirs(os.path.expanduser("~/.cache/pyamlqt/yaml"), exist_ok=True)
-                urllib.request.urlretrieve(path, os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path))
-                print("download yaml file: " + path)
+                # exists ~/.cache/pyamlqt/yaml/***.yaml ?
+                if not os.path.exists(os.path.expanduser("~/.cache/pyamlqt/yaml/" + os.path.basename(path))):
+                    os.makedirs(os.path.expanduser("~/.cache/pyamlqt/yaml"), exist_ok=True)
+                    urllib.request.urlretrieve(path, os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path))
+                    print("download yaml file: " + path)
+                else:
+                    print("yaml file is already downloaded (Please delete ~/.cache/pyamlqt/yaml/" + os.path.basename(path) + " to download again)")
                 path = os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path)
             
             with open(path, 'r') as f:
