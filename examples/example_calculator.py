@@ -1,5 +1,6 @@
 import sys
 import os
+from click import style
 import yaml
 
 from pyamlqt.create_widgets import create_widgets
@@ -40,7 +41,10 @@ class MainWindow(QMainWindow):
         # Template ---
         self.widgets, self.stylesheet = self.create_all_widgets(YAML)
         for key in self.widgets.keys():
-            self.widgets[key].setStyleSheet(self.stylesheet["style_common"])
+            if key == "lcd":
+                self.widgets[key].setStyleSheet(self.stylesheet[key])
+            else:
+                self.widgets[key].setStyleSheet(self.stylesheet["style_common"])
         # ------------
 
         # start-stop button

@@ -13,37 +13,17 @@ else:
 
 # object list ---------------------------------------------------------------
 # create_lcdnumber    create_slider
-# create_checkbox     create_lineedit 
+# create_checkbox     create_lineedit
 # create_combobox     create_progressbar
 # create_label        create_pushbutton
 # create_spinbox
 # ----------------------------------------------------------------------------
 
-def create_stylesheet_str(yaml_path: str, key: str, script_dir:str = "") -> str:
-    # configure = label_configure(yaml_path, key, script_dir)
-    # stylesheet_str = str()
-
-    # stylesheet_str += "font-family: " + configure.font + ";\n"
-    # stylesheet_str += "font-size: " + str(configure.font_size) + "px;\n"
-    # if configure.font_color != "":
-    #     stylesheet_str += "color: " + configure.font_color + ";"
-    # if configure.font_bold:
-    #     stylesheet_str += "font-weight: bold;"
-    # if configure.background_color != "":
-    #     stylesheet_str += "background-color: " + configure.background_color + "; "
-    # if configure.path != "":
-    #     stylesheet_str += "background-image: url(" + configure.path + "); "
-    configure = label_configure(yaml_path, key, script_dir)
-    stylesheet_str = str()
-    stylesheet_str = configure.stylesheet_str
-    
-    return stylesheet_str
-
 class create_widgets:
     def __init__(self):
         pass
 
-    def create(self, yaml_path: str, key: str, script_dir:str=""):
+    def create(self, yaml_path: str, key: str, script_dir: str = ""):
         config = label_configure(yaml_path, key, script_dir)
 
         if config.type == "qpushbutton":
@@ -55,7 +35,7 @@ class create_widgets:
             target = QtWidgets.QLabel(self)
             target.setText(config.text)
             target.setFont(QtGui.QFont(config.font, config.font_size))
-            
+
             if qt6_mode:
                 target.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
             else:
@@ -90,7 +70,7 @@ class create_widgets:
         elif config.type == "qslider":
             target = QtWidgets.QSlider(self)
             target.resize(config.width, config.height)
-        
+
             if config.height > config.width:
                 if qt6_mode:
                     target.setOrientation(QtCore.Qt.Orientation.Vertical)
@@ -121,7 +101,7 @@ class create_widgets:
             target.setFont(QtGui.QFont(config.font, config.font_size))
             for items in config.items:
                 target.addItem(items)
-                
+
         elif config.type == "image":
             target = QtWidgets.QLabel(self)
             target.setGeometry(config.x, config.y, config.width, config.height)
@@ -141,15 +121,16 @@ class create_widgets:
 
         target.resize(config.width, config.height)
         target.move(config.x, config.y)
-        stylesheet_str = create_stylesheet_str(yaml_path, key, script_dir)
-        return tuple((target , stylesheet_str))
+        stylesheet_str = config.stylesheet_str
+        # stylesheet_str
+        return tuple((target, stylesheet_str))
 
 # # Template  ================================================================
 #     def create_all_widgets(self, yaml_path: str) -> dict:
 #         widgets, stylesheet_str = dict(), dict()
 #         with open(yaml_path, 'r') as f:
 #             self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
-        
+
 #             for key in self.yaml_data:
 #                 data = create_widgets.create(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
 #                 widgets[key], stylesheet_str[key] = data[0], data[1]

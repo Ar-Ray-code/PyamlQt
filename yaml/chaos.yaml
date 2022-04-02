@@ -4,7 +4,9 @@ image:
   y_center: 360
   width: 1280
   height: 720
-  path: "./image/back-image.png"
+  # path: "./image/back-image.png"
+  style:
+    background-image: url(./image/back-image.png)
 start_stop_button:
   type: qpushbutton
   x_center: 150
@@ -12,11 +14,11 @@ start_stop_button:
   width: 200
   height: 100
   text: "Start"
-  font_size: 20
-  font_color: "#ff0000"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
+  style:
+    font: bold 20px
+    color: #ff0000
+    background-color: lightgreen
+    font-family: Ubuntu
 exit_button:
   type: qpushbutton
   x_center: 150
@@ -24,11 +26,11 @@ exit_button:
   width: 200
   height: 100
   text: "Exit"
-  font_size: 20
-  font_color: "#ff0000"
-  background_color: "yellow"
-  font: "Ubuntu"
-  font_bold: true
+  style:
+    font: bold 20px
+    color: #ff0000
+    background-color: orange
+    font-family: Ubuntu
 datetime_label:
   type: qlabel
   x_center: 550
@@ -36,10 +38,10 @@ datetime_label:
   width: 400
   height: 100
   text: "Date and Time"
-  font_size: 30
-  font_color: "#000000"
-  font: "Ubuntu"
-  font_bold: true
+  style:
+    font: bold 30px
+    color: #000000
+    font-family: Ubuntu
 title_qlabel:
   type: qlabel
   x_center: 500
@@ -47,10 +49,10 @@ title_qlabel:
   width: 500
   height: 100
   text: "PYamlQt-Chaos"
-  font_size: 40
-  font_color: "#000000"
-  font: "Purisa"
-  font_bold: false
+  style:
+    font: 40px
+    color: #000000
+    font-family: Purisa
 version_qlabel:
   type: qlabel
   x_center: 150
@@ -58,26 +60,27 @@ version_qlabel:
   width: 200
   height: 100
   text: "Version: 0.1.0"
-  font_size: 15
-  font_color: "#000000"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 15px
+    color: #000000
+    font-family: Ubuntu
 lcd_number:
   type: qlcdnumber
   x_center: 550
   y_center: 200
   width: 400
   height: 100
-  background_color: "lightgreen"
+  style:
+    background-color: "lightgreen"
 spinbox :
   type: qspinbox
   x_center: 150
   y_center: 350
   width: 100
   height: 50
-  font_color: "black"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    color: black
+    font-family: Ubuntu
 combobox:
   type: qcombobox
   x_center: 150
@@ -95,11 +98,10 @@ lineedit:
   width: 400
   height: 100
   text: "Line Edit"
-  font_size: 15
-  font_color: "#ff0000"
-  background_color: "lightblue"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 15px
+    color: black
+    font-family: Ubuntu
 slider1:
   type: qslider
   x_center: 120
@@ -110,10 +112,10 @@ slider1:
   min: 0
   default: 70
   text: "Slider"
-  font_size: 30
-  font_color: "#ff0000"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 30px
+    color: #ff0000
+    font-family: Ubuntu
 slider2:
   type: qslider
   x_center: 500
@@ -124,10 +126,10 @@ slider2:
   min: 0
   default: 70
   text: "Slider"
-  font_size: 30
-  font_color: "#ff0000"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 30px
+    color: #ff0000
+    font-family: Ubuntu
 checkbox:
   type: qcheckbox
   x_center: 150
@@ -135,10 +137,10 @@ checkbox:
   width: 200
   height: 100
   text: "Checkbox"
-  font_size: 10
-  font_color: "#ff00f0"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 10px
+    color: #ff00f0
+    font-family: Ubuntu
 progressbar:
   type: qprogressbar
   x_center: 400
@@ -146,14 +148,14 @@ progressbar:
   width: 500
   height: 20
   text: "Progressbar"
-  font_size: 10
-  font_color: "#ff0000"
-  font: "Ubuntu"
-  font_bold: false
+  style:
+    font: 10px
+    color: #ff0000
+    font-family: Ubuntu
 stop-stylesheet:
   type: stylesheet
-  font_size: 20
-  font_color: "#ff0000"
-  background_color: "orange"
-  font: "Ubuntu"
-  font_bold: true
+  style:
+    font: bold 20px
+    color: #ff0000
+    background-color: orange
+    font-family: Ubuntu

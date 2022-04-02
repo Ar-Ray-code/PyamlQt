@@ -6,15 +6,16 @@ import urllib.request
 
 DEBUG_FLAG = True
 
+
 class label_configure:
-    def is_url(self, path:str) -> bool:
+    def is_url(self, path: str) -> bool:
         pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
         if re.match(pattern, path):
             return True
         else:
             return False
-    
-    def __init__(self, yaml_file: str, target_key: str, script_dir:str="") -> None:
+
+    def __init__(self, yaml_file: str, target_key: str, script_dir: str = "") -> None:
         self.stylesheet_str = str()
         self.yaml_file = yaml_file
         self.target_key = target_key
@@ -31,22 +32,27 @@ class label_configure:
 
         # include yaml from yaml
         if "include" in self.yaml_data:
-            path = self.yaml_data["include"]
+            path = self.yaml_data["include"]["path"]
+            key = self.yaml_data["include"]["key"]
             # is url or path
-            if self.is_url(self.yaml_data["include"]):
+            if self.is_url(path):
                 # is url -> save to ~/.cache/pyamlqt/yaml/***.yaml and load it
                 # exists ~/.cache/pyamlqt/yaml/***.yaml ?
                 if not os.path.exists(os.path.expanduser("~/.cache/pyamlqt/yaml/" + os.path.basename(path))):
-                    os.makedirs(os.path.expanduser("~/.cache/pyamlqt/yaml"), exist_ok=True)
-                    urllib.request.urlretrieve(path, os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path))
+                    os.makedirs(os.path.expanduser(
+                        "~/.cache/pyamlqt/yaml"), exist_ok=True)
+                    urllib.request.urlretrieve(path, os.path.expanduser(
+                        "~/.cache/pyamlqt/yaml/") + os.path.basename(path))
                     print("download yaml file: " + path)
                 else:
-                    print("yaml file is already downloaded (Please delete ~/.cache/pyamlqt/yaml/" + os.path.basename(path) + " to download again)")
-                path = os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path)
-            
+                    print("yaml file is already downloaded (Please delete ~/.cache/pyamlqt/yaml/" +
+                          os.path.basename(path) + " to download again)")
+                path = os.path.expanduser(
+                    "~/.cache/pyamlqt/yaml/") + os.path.basename(path)
+
             with open(path, 'r') as f:
                 self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
-            self.yaml_data = label_configure(path, self.target_key, script_dir).yaml_data
+            self.yaml_data = label_configure(path, key, script_dir).yaml_data
             print("yaml_data: " + str(self.yaml_data))
 
         if "type" in self.yaml_data:
@@ -64,7 +70,7 @@ class label_configure:
             self.y_center = self.yaml_data["y_center"]
         else:
             self.y_center = 0
-        
+
         if "width" in self.yaml_data:
             self.width = self.yaml_data["width"]
         else:
@@ -88,47 +94,47 @@ class label_configure:
             self.font_color = self.yaml_data["font_color"]
         else:
             self.font_color = "#000000"
-        
+
         if "background_color" in self.yaml_data:
             self.background_color = self.yaml_data["background_color"]
         else:
             self.background_color = ""
-        
+
         if "font" in self.yaml_data:
             self.font = self.yaml_data["font"]
         else:
             self.font = "Arial"
-        
+
         if "font_bold" in self.yaml_data:
             self.font_bold = self.yaml_data["font_bold"]
         else:
             self.font_bold = False
-        
+
         if "items" in self.yaml_data:
             self.items = self.yaml_data["items"]
         else:
             self.items = []
-        
+
         if "max" in self.yaml_data:
             self.max = self.yaml_data["max"]
         else:
             self.max = 100
-        
+
         if "min" in self.yaml_data:
             self.min = self.yaml_data["min"]
         else:
             self.min = 0
-        
+
         if "step" in self.yaml_data:
             self.step = self.yaml_data["step"]
         else:
             self.step = 1
-        
+
         if "default" in self.yaml_data:
             self.default = self.yaml_data["default"]
         else:
             self.default = 0
-        
+
         if "path" in self.yaml_data:
             self.path = self.yaml_data["path"]
             if script_dir != "":
@@ -136,19 +142,45 @@ class label_configure:
                 self.path = os.path.abspath(self.path)
         else:
             self.path = ""
-        
+
         if "style" in self.yaml_data:
-            for key, value in self.yaml_data["style"].items():
-                self.stylesheet_str += key + ": " + str(value) + "; "
+            # if include key
+            if "include" in self.yaml_data["style"]:
+                path = self.yaml_data["style"]["include"]["path"]
+                key = self.yaml_data["style"]["include"]["key"]
+                # is url or path
+                if self.is_url(path):
+                    # is url -> save to ~/.cache/pyamlqt/yaml/***.yaml and load it
+                    # exists ~/.cache/pyamlqt/yaml/***.yaml ?
+                    if not os.path.exists(os.path.expanduser("~/.cache/pyamlqt/yaml/" + os.path.basename(path))):
+                        os.makedirs(os.path.expanduser(
+                            "~/.cache/pyamlqt/yaml"), exist_ok=True)
+                        urllib.request.urlretrieve(path, os.path.expanduser(
+                            "~/.cache/pyamlqt/yaml/") + os.path.basename(path))
+                        print("download yaml file: " + path)
+                    else:
+                        print("yaml file is already downloaded (Please delete ~/.cache/pyamlqt/yaml/" +
+                              os.path.basename(path) + " to download again)")
+                    path = os.path.expanduser(
+                        "~/.cache/pyamlqt/yaml/") + os.path.basename(path)
+
+                with open(path, 'r') as f:
+                    self.stylesheet_str = yaml.load(f, Loader=yaml.FullLoader)
+                self.stylesheet_str = label_configure(
+                    path, key, script_dir).stylesheet_str
+                print("stylesheet_str: " + str(self.stylesheet_str))
+
+            else:
+                for key, value in self.yaml_data["style"].items():
+                    self.stylesheet_str += key + ": " + str(value) + "; "
+
         else:
             self.stylesheet_str = ""
-        
+
         if "debug" in self.yaml_data:
             self.debug = self.yaml_data["debug"]
         else:
             self.debug = False
-
-
 
         self.x = self.x_center - self.width // 2
         self.y = self.y_center - self.height // 2
@@ -176,4 +208,3 @@ class label_configure:
             print("path: " + str(self.path))
             print("stylesheet_str: " + str(self.stylesheet_str))
             print("==========================================================")
-        
