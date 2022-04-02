@@ -6,12 +6,7 @@ image:
   height: 920
   path: "./image/back-image.png"
 style_common:
-  type: stylesheet
-  font_size: 30
-  font_color: "black"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
+  include: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/style_blue.yaml
 button_1:
   type: qpushbutton
   width: 200

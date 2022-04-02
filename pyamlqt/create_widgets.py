@@ -20,19 +20,22 @@ else:
 # ----------------------------------------------------------------------------
 
 def create_stylesheet_str(yaml_path: str, key: str, script_dir:str = "") -> str:
+    # configure = label_configure(yaml_path, key, script_dir)
+    # stylesheet_str = str()
+
+    # stylesheet_str += "font-family: " + configure.font + ";\n"
+    # stylesheet_str += "font-size: " + str(configure.font_size) + "px;\n"
+    # if configure.font_color != "":
+    #     stylesheet_str += "color: " + configure.font_color + ";"
+    # if configure.font_bold:
+    #     stylesheet_str += "font-weight: bold;"
+    # if configure.background_color != "":
+    #     stylesheet_str += "background-color: " + configure.background_color + "; "
+    # if configure.path != "":
+    #     stylesheet_str += "background-image: url(" + configure.path + "); "
     configure = label_configure(yaml_path, key, script_dir)
     stylesheet_str = str()
-
-    stylesheet_str += "font-family: " + configure.font + ";\n"
-    stylesheet_str += "font-size: " + str(configure.font_size) + "px;\n"
-    if configure.font_color != "":
-        stylesheet_str += "color: " + configure.font_color + ";"
-    if configure.font_bold:
-        stylesheet_str += "font-weight: bold;"
-    if configure.background_color != "":
-        stylesheet_str += "background-color: " + configure.background_color + "; "
-    if configure.path != "":
-        stylesheet_str += "background-image: url(" + configure.path + "); "
+    stylesheet_str = configure.stylesheet_str
     
     return stylesheet_str
 

@@ -1,14 +1,25 @@
 import sys
 import os
 import yaml
+import re
+import urllib.request
 
-DEBUG_FLAG = False
+DEBUG_FLAG = True
 
 class label_configure:
+    def is_url(self, path:str) -> bool:
+        pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
+        if re.match(pattern, path):
+            return True
+        else:
+            return False
+    
     def __init__(self, yaml_file: str, target_key: str, script_dir:str="") -> None:
         self.stylesheet_str = str()
         self.yaml_file = yaml_file
         self.target_key = target_key
+
+        self.debug = DEBUG_FLAG
 
         with open(self.yaml_file, 'r') as f:
             self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
@@ -17,6 +28,22 @@ class label_configure:
             print("no yaml data")
             sys.exit()
         self.yaml_data = self.yaml_data[self.target_key]
+
+        # include yaml from yaml
+        if "include" in self.yaml_data:
+            path = self.yaml_data["include"]
+            # is url or path
+            if self.is_url(self.yaml_data["include"]):
+                # is url -> save to ~/.cache/pyamlqt/yaml/***.yaml and load it
+                os.makedirs(os.path.expanduser("~/.cache/pyamlqt/yaml"), exist_ok=True)
+                urllib.request.urlretrieve(path, os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path))
+                print("download yaml file: " + path)
+                path = os.path.expanduser("~/.cache/pyamlqt/yaml/") + os.path.basename(path)
+            
+            with open(path, 'r') as f:
+                self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
+            self.yaml_data = label_configure(path, self.target_key, script_dir).yaml_data
+            print("yaml_data: " + str(self.yaml_data))
 
         if "type" in self.yaml_data:
             self.type = self.yaml_data["type"]
@@ -105,12 +132,25 @@ class label_configure:
                 self.path = os.path.abspath(self.path)
         else:
             self.path = ""
+        
+        if "style" in self.yaml_data:
+            for key, value in self.yaml_data["style"].items():
+                self.stylesheet_str += key + ": " + str(value) + "; "
+        else:
+            self.stylesheet_str = ""
+        
+        if "debug" in self.yaml_data:
+            self.debug = self.yaml_data["debug"]
+        else:
+            self.debug = False
+
+
 
         self.x = self.x_center - self.width // 2
         self.y = self.y_center - self.height // 2
 
         # print all
-        if DEBUG_FLAG:
+        if self.debug:
             print("==========================================================")
             print("loading " + yaml_file)
             print("type:" + str(self.type))
@@ -130,4 +170,6 @@ class label_configure:
             print("step: " + str(self.step))
             print("default: " + str(self.default))
             print("path: " + str(self.path))
+            print("stylesheet_str: " + str(self.stylesheet_str))
             print("==========================================================")
+        
