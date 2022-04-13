@@ -1,0 +1,5 @@
+basic_button:
+  type: qlabel
+  rect:
+    width: 200
+    height: 100

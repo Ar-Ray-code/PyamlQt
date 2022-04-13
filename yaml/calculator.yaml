@@ -2,20 +2,22 @@ image:
   type: image
   x_center: 350
   y_center: 460
-  width: 700
-  height: 920
+  rect:
+    width: 700
+    height: 920
   path: "./image/back-image.png"
 style_common:
   type: stylesheet
-  font_size: 30
-  font_color: "black"
-  background_color: "lightgreen"
-  font: "Ubuntu"
-  font_bold: true
+  style:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/color/style_blue.yaml
+      key: style_common
 button_1:
   type: qpushbutton
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   x_center: 150
   y_center: 400
   text: "1"
@@ -23,84 +25,110 @@ button_2:
   type: qpushbutton
   x_center: 350
   y_center: 400
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "2"
 button_3:
   type: qpushbutton
   x_center: 550
   y_center: 400
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "3"
 button_4:
   type: qpushbutton
   x_center: 150
   y_center: 500
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "4"
 button_5:
   type: qpushbutton
   x_center: 350
   y_center: 500
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "5"
 button_6:
   type: qpushbutton
   x_center: 550
   y_center: 500
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "6"
 button_7:
   type: qpushbutton
   x_center: 150
   y_center: 600
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "7"
 button_8:
   type: qpushbutton
   x_center: 350
   y_center: 600
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "8"
 button_9:
   type: qpushbutton
   x_center: 550
   y_center: 600
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "9"
 button_plus:
   type: qpushbutton
   x_center: 150
   y_center: 700
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "+"
 button_0:
   type: qpushbutton
   x_center: 350
   y_center: 700
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "0"
 button_equal:
   type: qpushbutton
   x_center: 550
   y_center: 700
-  width: 200
-  height: 100
+  rect:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/rect/basic_button.yaml
+      key: basic_button
   text: "="
 lcd:
   lcd_number:
   type: qlcdnumber
   x_center: 350
   y_center: 200
-  width: 400
-  height: 100
-  background_color: "lightgreen"
+  rect:
+    width: 400
+    height: 100
+  style:
+    include:
+      path: https://raw.githubusercontent.com/Ar-Ray-code/PyamlQt/features/loading_url_path/yaml/color/style_red.yaml
+      key: style_common
