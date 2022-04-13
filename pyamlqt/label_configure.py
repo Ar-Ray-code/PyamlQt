@@ -30,7 +30,7 @@ class label_configure:
             sys.exit()
         self.yaml_data = self.yaml_data[self.target_key]
 
-        # include yaml from yaml
+    # include yaml from yaml ---------------------------------------------------
         if "include" in self.yaml_data:
             path = self.yaml_data["include"]["path"]
             key = self.yaml_data["include"]["key"]
@@ -54,6 +54,10 @@ class label_configure:
                 self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
             self.yaml_data = label_configure(path, key, script_dir).yaml_data
             print("yaml_data: " + str(self.yaml_data))
+            # return force
+            return
+
+    # Using common tag --------------------------------------------------------
 
         if "type" in self.yaml_data:
             self.type = self.yaml_data["type"]
