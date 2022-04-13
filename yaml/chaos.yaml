@@ -2,8 +2,9 @@ image:
   type: image
   x_center: 550
   y_center: 360
-  width: 1280
-  height: 720
+  rect:
+    width: 1280
+    height: 720
   # path: "./image/back-image.png"
   style:
     background-image: url(./image/back-image.png)
@@ -11,8 +12,9 @@ start_stop_button:
   type: qpushbutton
   x_center: 150
   y_center: 150
-  width: 200
-  height: 100
+  rect:
+    width: 200
+    height: 100
   text: "Start"
   style:
     font: bold 20px
@@ -23,8 +25,9 @@ exit_button:
   type: qpushbutton
   x_center: 150
   y_center: 250
-  width: 200
-  height: 100
+  rect:
+    width: 200
+    height: 100
   text: "Exit"
   style:
     font: bold 20px
@@ -35,8 +38,9 @@ datetime_label:
   type: qlabel
   x_center: 550
   y_center: 500
-  width: 400
-  height: 100
+  rect:
+    width: 400
+    height: 100
   text: "Date and Time"
   style:
     font: bold 30px
@@ -46,8 +50,9 @@ title_qlabel:
   type: qlabel
   x_center: 500
   y_center: 40
-  width: 500
-  height: 100
+  rect:
+    width: 500
+    height: 100
   text: "PYamlQt-Chaos"
   style:
     font: 40px
@@ -57,8 +62,9 @@ version_qlabel:
   type: qlabel
   x_center: 150
   y_center: 80
-  width: 200
-  height: 100
+  rect:
+    width: 200
+    height: 100
   text: "Version: 0.1.0"
   style:
     font: 15px
@@ -68,16 +74,18 @@ lcd_number:
   type: qlcdnumber
   x_center: 550
   y_center: 200
-  width: 400
-  height: 100
+  rect:
+    width: 400
+    height: 100
   style:
     background-color: "lightgreen"
 spinbox :
   type: qspinbox
   x_center: 150
   y_center: 350
-  width: 100
-  height: 50
+  rect:
+    width: 100
+    height: 50
   style:
     color: black
     font-family: Ubuntu
@@ -85,8 +93,9 @@ combobox:
   type: qcombobox
   x_center: 150
   y_center: 400
-  width: 100
-  height: 50
+  rect:
+    width: 100
+    height: 50
   items:
     - a
     - b
@@ -95,8 +104,9 @@ lineedit:
   type: qlineedit
   x_center: 550
   y_center: 360
-  width: 400
-  height: 100
+  rect:
+    width: 400
+    height: 100
   text: "Line Edit"
   style:
     font: 15px
@@ -106,8 +116,9 @@ slider1:
   type: qslider
   x_center: 120
   y_center: 550
-  width: 200
-  height: 50
+  rect:
+    width: 200
+    height: 50
   max: 100
   min: 0
   default: 70
@@ -120,8 +131,9 @@ slider2:
   type: qslider
   x_center: 500
   y_center: 550
-  width: 200
-  height: 50
+  rect:
+    width: 200
+    height: 50
   max: 100
   min: 0
   default: 70
@@ -134,8 +146,9 @@ checkbox:
   type: qcheckbox
   x_center: 150
   y_center: 500
-  width: 200
-  height: 100
+  rect:
+    width: 200
+    height: 100
   text: "Checkbox"
   style:
     font: 10px
@@ -145,8 +158,9 @@ progressbar:
   type: qprogressbar
   x_center: 400
   y_center: 650
-  width: 500
-  height: 20
+  rect:
+    width: 500
+    height: 20
   text: "Progressbar"
   style:
     font: 10px
