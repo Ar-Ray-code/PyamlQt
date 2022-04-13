@@ -143,6 +143,7 @@ class label_configure:
         else:
             self.path = ""
 
+    # StyleSheet ---------------------------------------------------------------
         if "style" in self.yaml_data:
             # if include key
             if "include" in self.yaml_data["style"]:
@@ -173,10 +174,47 @@ class label_configure:
             else:
                 for key, value in self.yaml_data["style"].items():
                     self.stylesheet_str += key + ": " + str(value) + "; "
-
         else:
             self.stylesheet_str = ""
 
+    # Label Rect ---------------------------------------------------------------
+        if "rect" in self.yaml_data:
+            # if include key
+            if "include" in self.yaml_data["rect"]:
+                path = self.yaml_data["rect"]["include"]["path"]
+                key = self.yaml_data["rect"]["include"]["key"]
+                # is url or path
+                if self.is_url(path):
+                    # is url -> save to ~/.cache/pyamlqt/yaml/***.yaml and load it
+                    # exists ~/.cache/pyamlqt/yaml/***.yaml ?
+                    if not os.path.exists(os.path.expanduser("~/.cache/pyamlqt/yaml/" + os.path.basename(path))):
+                        os.makedirs(os.path.expanduser(
+                            "~/.cache/pyamlqt/yaml"), exist_ok=True)
+                        urllib.request.urlretrieve(path, os.path.expanduser(
+                            "~/.cache/pyamlqt/yaml/") + os.path.basename(path))
+                        print("download yaml file: " + path)
+                    else:
+                        print("yaml file is already downloaded (Please delete ~/.cache/pyamlqt/yaml/" +
+                              os.path.basename(path) + " to download again)")
+                    path = os.path.expanduser(
+                        "~/.cache/pyamlqt/yaml/") + os.path.basename(path)
+
+                with open(path, 'r') as f:
+                    self.rect_width = yaml.load(f, Loader=yaml.FullLoader)
+                self.rect_width = label_configure(path, key, script_dir).rect_width
+                self.rect_height = label_configure(path, key, script_dir).rect_height
+            else:
+                self.rect_width = self.yaml_data["rect"]["width"]
+                self.rect_height = self.yaml_data["rect"]["height"]
+        else:
+            pass
+            self.rect_width = self.width
+            self.rect_height = self.height
+
+        self.width = self.rect_width
+        self.height = self.rect_height
+
+    # debug ---------------------------------------------------------------
         if "debug" in self.yaml_data:
             self.debug = self.yaml_data["debug"]
         else:
