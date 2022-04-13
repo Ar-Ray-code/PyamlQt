@@ -114,20 +114,21 @@ In yaml, you can add the following elements defined in PyQt.Widgets This may be 
 PyamlQt defines common elements for simplicity. Not all values need to be defined, but if not set, default values will be applied
 
 ```yaml
-key: # key name (Required for your scripts)
-  type: slider # QWidgets
+slider2: # keyname
+  type: qslider # QWidgets
   x_center: 500 # x center point
   y_center: 550 # y center point
-  width: 200 # QWidgets width
-  height: 50 # QWidgets height
+  rect:
+    width: 200 # QWidgets width
+    height: 50 # QWidgets height
   max: 100 # QObject max value
   min: 0 # QObject min value
   default: 70 # QObject set default value
-  text: "Slider" # Text
-  font_size: 30 # Text size [px]
-  font_color: "#ff0000" # Text color
-  font: "Ubuntu" # Text font
-  font_bold: false # bold-text option
+  text: "Slider" # Set Text
+  style: # Setting style using stylesheet (css)
+    font: 30px # font size
+    color: #ff0000 # Color
+    font-family: Ubuntu # font-family
   items: # Selectable items( Combobox's option )
     - a
     - b
@@ -139,4 +140,4 @@ If you want to use PyQt5, you have to change the `qt6_switch.py` file.
 
 - Open the file and change the `qt6_mode` variable to `False`.
 - `pip3 install PyQt5`
-- `pip3 install -v -e .`
+- `pip3 install .`
