@@ -107,5 +107,5 @@ slider2: # keyname
 If you want to use PyQt5, you have to change the `qt6_switch.py` file.
 
 - Open the file and change the `qt6_mode` variable to `False`.
-- `pip3 install PyQt5`
-- `pip3 install .`
+- `pip install PyQt5`
+- `pip install .`
