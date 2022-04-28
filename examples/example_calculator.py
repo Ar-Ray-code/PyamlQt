@@ -1,19 +1,15 @@
 import sys
 import os
-from click import style
-import yaml
 
-from pyamlqt.create_widgets import create_widgets
+from pyamlqt.mainwindow import PyamlQtWindow
 import pyamlqt.qt6_switch as qt6_switch
 
 qt6_mode = qt6_switch.qt6
 
 if qt6_mode:
-    from PyQt6 import QtCore, QtWidgets
-    from PyQt6.QtWidgets import QApplication, QMainWindow
+    from PyQt6.QtWidgets import QApplication
 else:
-    from PyQt5 import QtCore, QtWidgets
-    from PyQt5.QtWidgets import QApplication, QMainWindow
+    from PyQt5.QtWidgets import QApplication
 
 TITLE = "calc"
 WIDTH = 700
@@ -24,28 +20,10 @@ EQUAL = -3
 
 YAML = os.path.join(os.path.dirname(__file__), "../yaml/calculator.yaml")
 
-class MainWindow(QMainWindow):
+class MainWindow(PyamlQtWindow):
     def __init__(self):
         self.number = 0
-        super().__init__()
-
-        # geometry setting ---
-        self.setWindowTitle(TITLE)
-        self.setGeometry(0, 0, WIDTH, HEIGHT)
-        self.create_widgets()
-
-    def __del__(self):
-        pass
-    
-    def create_widgets(self):
-        # Template ---
-        self.widgets, self.stylesheet = self.create_all_widgets(YAML)
-        for key in self.widgets.keys():
-            if key == "lcd":
-                self.widgets[key].setStyleSheet(self.stylesheet[key])
-            else:
-                self.widgets[key].setStyleSheet(self.stylesheet["style_common"])
-        # ------------
+        super().__init__(TITLE, 0, 0, WIDTH, HEIGHT, YAML)
 
         # start-stop button
         self.widgets["button_1"].clicked.connect(lambda: self.button_update(1))
@@ -61,20 +39,13 @@ class MainWindow(QMainWindow):
         self.widgets["button_plus"].clicked.connect(lambda: self.button_update(PLUS))
         self.widgets["button_equal"].clicked.connect(lambda: self.button_update(EQUAL))
 
-        # show
-        self.show()
-# Template ================================================================
-    def create_all_widgets(self, yaml_path: str) -> dict:
-        widgets, stylesheet_str = dict(), dict()
-        with open(yaml_path, 'r') as f:
-            self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
-        
-            for key in self.yaml_data:
-                data = create_widgets.create(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
-                widgets[key], stylesheet_str[key] = data[0], data[1]
+        for key in self.widgets.keys():
+            if key == "lcd":
+                self.widgets[key].setStyleSheet(self.stylesheet[key])
+            else:
+                self.widgets[key].setStyleSheet(self.stylesheet["style_common"])
 
-        return widgets, stylesheet_str
-# =========================================================================
+        self.show()
 
     def button_update(self, number:int = -1):
         if number >= 0:

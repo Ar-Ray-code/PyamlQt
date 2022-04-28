@@ -65,7 +65,7 @@ version_qlabel:
   rect:
     width: 200
     height: 100
-  text: "Version: 0.1.0"
+  text: "Version: 0.3.0"
   style:
     font: 15px
     color: #000000
