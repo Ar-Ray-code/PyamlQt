@@ -1,7 +1,7 @@
 style_common:
   type: stylesheet
   style:
-    font: bold 30px;
+    font: bold 30px
     color: black
     background-color: lightblue
     border: 1px solid blue

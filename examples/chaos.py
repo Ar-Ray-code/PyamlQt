@@ -1,20 +1,20 @@
 import sys
 import datetime
 import time
-import yaml
 import os
 
-from pyamlqt.create_widgets import create_widgets
 import pyamlqt.qt6_switch as qt6_switch
+
+from pyamlqt.mainwindow import PyamlQtWindow
 
 qt6_mode = qt6_switch.qt6
 
 if qt6_mode:
     from PyQt6 import QtCore, QtWidgets
-    from PyQt6.QtWidgets import QApplication, QMainWindow
+    from PyQt6.QtWidgets import QApplication
 else:
     from PyQt5 import QtCore, QtWidgets
-    from PyQt5.QtWidgets import QApplication, QMainWindow
+    from PyQt5.QtWidgets import QApplication
 
 # program file name
 TITLE = os.path.basename(__file__)
@@ -23,28 +23,10 @@ HEIGHT = 720
 
 YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
 
-class MainWindow(QMainWindow):
+
+class MainWindow(PyamlQtWindow):
     def __init__(self):
-        self.number = 0
-        self.time_val = int(time.time())
-        self.start_flag = False
-
-        super().__init__()
-
-        # geometry setting ---
-        self.setWindowTitle(TITLE)
-        self.setGeometry(0, 0, WIDTH, HEIGHT)
-        self.create_widgets()
-
-    def __del__(self):
-        pass
-    
-    def create_widgets(self):
-        # Template ---
-        self.widgets, self.stylesheet = self.create_all_widgets(YAML)
-        for key in self.widgets.keys():
-            self.widgets[key].setStyleSheet(self.stylesheet[key])
-        # ------------
+        super().__init__(TITLE, 0, 0, WIDTH, HEIGHT, YAML)
 
         self.widgets["start_stop_button"].clicked.connect(self.button_update)
 
@@ -113,19 +95,6 @@ class MainWindow(QMainWindow):
         self.update()
         self.show()
         self.timer.start(10)
-
-# Template ================================================================
-    def create_all_widgets(self, yaml_path: str) -> dict:
-        widgets, stylesheet_str = dict(), dict()
-        with open(yaml_path, 'r') as f:
-            self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
-        
-            for key in self.yaml_data:
-                data = create_widgets.create(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
-                widgets[key], stylesheet_str[key] = data[0], data[1]
-
-        return widgets, stylesheet_str
-# =========================================================================
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
