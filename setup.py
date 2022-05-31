@@ -39,4 +39,9 @@ setuptools.setup(
         "Source": "https://github.com/Ar-Ray-code/PyamlQt",
         "Tracker": "https://github.com/Ar-Ray-code/PyamlQt/issues",
     },
+    entry_points={
+        "console_scripts": [
+            "pyamlqt_yaml = pyamlqt.load_yaml:entry_point",
+        ],
+    }
 )

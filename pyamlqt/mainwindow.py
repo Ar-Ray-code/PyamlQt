@@ -40,11 +40,12 @@ class PyamlQtWindow(QMainWindow):
 # Template ================================================================
     def create_all_widgets(self, yaml_path: str) -> dict:
         widgets, stylesheet_str = dict(), dict()
-        with open(yaml_path, 'r') as f:
+        yaml_abs_path = os.path.abspath(yaml_path)
+        with open(yaml_abs_path, 'r') as f:
             self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
         
             for key in self.yaml_data:
-                data = create_widgets.create(self, yaml_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
+                data = create_widgets.create(self, yaml_abs_path, key, os.path.abspath(os.path.dirname(__file__)) + "/../")
                 widgets[key], stylesheet_str[key] = data[0], data[1]
 
         return widgets, stylesheet_str

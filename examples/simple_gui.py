@@ -12,7 +12,10 @@ class MainWindow(PyamlQtWindow):
         super().__init__("title", 0, 0, 800, 720, YAML)
         self.show()
 
-if __name__ == '__main__':
+def entry_point():
     app = QApplication(sys.argv)
     window = MainWindow()
     sys.exit(app.exec())
+
+if __name__ == '__main__':
+    entry_point()
