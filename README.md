@@ -40,17 +40,14 @@ import os
 from pyamlqt.mainwindow import PyamlQtWindow
 from PyQt6.QtWidgets import QApplication
 
-YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
-
 class MainWindow(PyamlQtWindow):
     def __init__(self):
         self.number = 0
-        super().__init__("title", 0, 0, 800, 720, YAML)
-
+        yaml_path = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
+        super().__init__(yaml_path)
         # your code -------------------------
         # ************ #
         # -----------------------------------
-
         self.show()
 
 if __name__ == '__main__':
@@ -61,6 +58,15 @@ if __name__ == '__main__':
 
 <!-- Run `python3 <path-to-script>/simple_gui.py`. -->
 ![](image/simple-gui-480p.png)
+
+## Test YAML 📝
+
+`pyamlqt_yaml` is preview feature app.
+
+```bash
+pyamlqt_yaml <yaml-file-path>
+# pyamlqt_yaml PyamlQt/yaml/chaos.yaml
+```
 
 ## Elements (dev)
 In yaml, you can add the following elements defined in PyQt.Widgets This may be added in the future.
@@ -82,6 +88,14 @@ In yaml, you can add the following elements defined in PyQt.Widgets This may be 
 PyamlQt defines common elements for simplicity. Not all values need to be defined, but if not set, default values will be applied
 
 ```yaml
+WINDOW: # unique key (Define key)
+  type: window
+  x: 0
+  y: 0
+  width: 800
+  height: 720
+  title: "example"
+
 slider2: # keyname
   type: qslider # QWidgets
   x_center: 500 # x center point
