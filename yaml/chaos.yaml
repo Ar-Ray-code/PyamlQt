@@ -7,7 +7,7 @@ image:
     height: 720
   # path: "./image/back-image.png"
   style:
-    background-image: url(./image/back-image.png)
+    background-image: url(../image/back-image.png)
 start_stop_button:
   type: qpushbutton
   x_center: 150

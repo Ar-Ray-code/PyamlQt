@@ -23,8 +23,8 @@ class create_widgets:
     def __init__(self):
         pass
 
-    def create(self, yaml_path: str, key: str, script_dir: str = ""):
-        config = label_configure(yaml_path, key, script_dir)
+    def create(self, yaml_abs_path: str, key: str, script_dir: str = ""):
+        config = label_configure(yaml_abs_path, key, script_dir)
 
         if config.type == "qpushbutton":
             target = QtWidgets.QPushButton(self)

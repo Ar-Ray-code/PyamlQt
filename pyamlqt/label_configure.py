@@ -15,14 +15,14 @@ class label_configure:
         else:
             return False
 
-    def __init__(self, yaml_file: str, target_key: str, script_dir: str = "") -> None:
+    def __init__(self, yaml_abs_path: str, target_key: str, script_dir: str = "") -> None:
         self.stylesheet_str = str()
-        self.yaml_file = yaml_file
+        self.yaml_abs_path_file = yaml_abs_path
         self.target_key = target_key
 
         self.debug = DEBUG_FLAG
 
-        with open(self.yaml_file, 'r') as f:
+        with open(self.yaml_abs_path_file, 'r') as f:
             self.yaml_data = yaml.load(f, Loader=yaml.FullLoader)
         # exit when no yaml data
         if self.yaml_data is None:
@@ -177,7 +177,20 @@ class label_configure:
 
             else:
                 for key, value in self.yaml_data["style"].items():
-                    self.stylesheet_str += key + ": " + str(value) + "; "
+                    # configure stylesheet
+                    if (key == "background-image"):
+                        # check path "./" or "../" ... (relative path)
+                        # image_path : url(./image/back-image.png) -> ./image/back-image.png
+                        image_path = value.replace("url(", "").replace(")", "")
+                        if (image_path[0] == "." or image_path[0] == ".."):
+                            basepath = os.path.dirname(self.yaml_abs_path_file)
+                            image_path = os.path.join(basepath, image_path)
+                            print("------------------")
+                            print("image_path: " + image_path)
+                            print("------------------")
+                        self.stylesheet_str += key + ": url(" + image_path + ");"
+                    else:
+                        self.stylesheet_str += key + ": " + str(value) + "; "
         else:
             self.stylesheet_str = ""
 
@@ -230,7 +243,7 @@ class label_configure:
         # print all
         if self.debug:
             print("==========================================================")
-            print("loading " + yaml_file)
+            print("loading " + yaml_abs_path_file)
             print("type:" + str(self.type))
             print("x_center: " + str(self.x_center))
             print("y_center: " + str(self.y_center))
