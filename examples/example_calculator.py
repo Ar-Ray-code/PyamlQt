@@ -11,10 +11,6 @@ if qt6_mode:
 else:
     from PyQt5.QtWidgets import QApplication
 
-TITLE = "calc"
-WIDTH = 700
-HEIGHT = 920
-
 PLUS = -2
 EQUAL = -3
 
@@ -23,7 +19,7 @@ YAML = os.path.join(os.path.dirname(__file__), "../yaml/calculator.yaml")
 class MainWindow(PyamlQtWindow):
     def __init__(self):
         self.number = 0
-        super().__init__(TITLE, 0, 0, WIDTH, HEIGHT, YAML)
+        super().__init__(YAML)
 
         # start-stop button
         self.widgets["button_1"].clicked.connect(lambda: self.button_update(1))

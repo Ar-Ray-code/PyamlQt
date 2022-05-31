@@ -16,17 +16,11 @@ else:
     from PyQt5 import QtCore, QtWidgets
     from PyQt5.QtWidgets import QApplication
 
-# program file name
-TITLE = os.path.basename(__file__)
-WIDTH = 800
-HEIGHT = 720
-
 YAML = os.path.join(os.path.dirname(__file__), "../yaml/chaos.yaml")
-
 
 class MainWindow(PyamlQtWindow):
     def __init__(self):
-        super().__init__(TITLE, 0, 0, WIDTH, HEIGHT, YAML)
+        super().__init__(YAML)
 
         self.widgets["start_stop_button"].clicked.connect(self.button_update)
 

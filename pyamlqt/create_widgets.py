@@ -23,8 +23,8 @@ class create_widgets:
     def __init__(self):
         pass
 
-    def create(self, yaml_abs_path: str, key: str, script_dir: str = ""):
-        config = label_configure(yaml_abs_path, key, script_dir)
+    def create(self, yaml_abs_path: str, key: str):
+        config = label_configure(yaml_abs_path, key)
 
         if config.type == "qpushbutton":
             target = QtWidgets.QPushButton(self)
@@ -117,7 +117,8 @@ class create_widgets:
 
         else:
             print(config.type + " is not defined")
-            exit(1)
+            target = QtWidgets.QLabel(self)
+            target.setHidden(True)
 
         target.resize(config.width, config.height)
         target.move(config.x, config.y)

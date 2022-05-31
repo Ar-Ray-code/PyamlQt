@@ -9,7 +9,7 @@ class MainWindow(PyamlQtWindow):
         self.number = 0
         print(args)
         if (len(args) == 2):
-            super().__init__("title", 0, 0, 800, 720, args[1])
+            super().__init__(args[1])
             self.show()
         else:
             print("No args.")
