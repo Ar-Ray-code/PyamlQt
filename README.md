@@ -1,3 +1,7 @@
+:warning: This is outdated. See [ReadableWidgets](https://github.com/Ar-Ray-code/ReadableWidgets).
+
+<br>
+
 # PyamlQt（ぴゃむるきゅーと）
 
 [![PyPI version](https://badge.fury.io/py/PyamlQt.svg)](https://badge.fury.io/py/PyamlQt)
